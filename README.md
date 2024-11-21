@@ -8,7 +8,7 @@ The application will feature distinct Buyer and Admin views, allowing users to m
 
 - [Deployment Link]()
 
-### Setup and Contribution
+### Setup
 
 Clone the frontend repository:
 
