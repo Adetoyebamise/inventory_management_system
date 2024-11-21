@@ -2,7 +2,7 @@
 
 ### Objectives
 
-The application will feature distinct Buyer and Admin views, allowing users to manage items (add, update, add to cart) and filter products by category, This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The application will feature distinct Buyer and Admin views, allowing users to manage items (add, update, add to cart) and filter products by category .
 
 ### Deployment links
 
