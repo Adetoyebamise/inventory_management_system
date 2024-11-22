@@ -1,6 +1,6 @@
 import React from "react"
-import FooterLogoOne from "/assets/footer_frame_22668.png"
-import FooterLogoOverlapp from "/assets/footer_phone_mockups.png"
+import FooterLogoOne from "/assets/footerframe.png"
+import FooterLogoOverlapp from "/assets/footerphonemockups.png"
 
 function Footer() {
   return (
