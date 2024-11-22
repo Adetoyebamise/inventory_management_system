@@ -1,6 +1,6 @@
 import React from "react"
 import { GoX } from "react-icons/go"
-import ModalImageSampleOne from "../../src/assets/meal_1.png"
+import ModalImageSampleOne from "/src/assets/meal_1.png"
 
 function Modal() {
   return (

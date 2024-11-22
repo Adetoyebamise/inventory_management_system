@@ -1,6 +1,6 @@
 import React from "react"
-import ImageSampleLogoOne from "../../src/assets/meal_1.png"
-import ImageSampleLogoTwo from "../../src/assets/meal_3.png"
+import ImageSampleLogoOne from "/src/assets/meal_1.png"
+import ImageSampleLogoTwo from "/src/assets/meal_3.png"
 
 function PageLayout() {
   return (
