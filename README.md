@@ -6,7 +6,7 @@ The application will feature distinct Buyer and Admin views, allowing users to m
 
 ### Deployment links
 
-- [Deployment Link]()
+- [Deployment Link](https://inventorytul.netlify.app/)
 
 ### Setup
 
