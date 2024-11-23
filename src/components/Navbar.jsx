@@ -1,6 +1,6 @@
 import { HiChevronDown } from "react-icons/hi"
 import { RxAvatar } from "react-icons/rx"
-import logo from "/assets/Logo.png"
+import logo from "/src/assets/Logo.png"
 
 const Navbar = () => {
   return (
