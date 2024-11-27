@@ -1,6 +1,4 @@
-import React from "react"
-import ImageSampleLogoOne from "/src/assets/mealone.png"
-import ImageSampleLogoTwo from "/src/assets/mealthree.png"
+import { useLoaderData } from "react-router-dom"
 
 function Order() {
   return (
@@ -28,41 +26,50 @@ function Sidebar() {
     </aside>
   )
 }
+
 function OrderGrid() {
+  const { orders } = useLoaderData()
   return (
-    <div className="product__container">
-      <div className="flex flex-row">
-        <div className="mr-2">
-          <p>Category </p>{" "}
+    <div>
+      <div className="order__container">
+        <div className="flex flex-row">
+          <div className="mr-2">
+            <p>Category </p>{" "}
+          </div>
+          <div>
+            <p> &gt;</p>
+          </div>
+          <div className="ml-2">
+            <p>
+              <span>Snack</span>
+            </p>
+          </div>
         </div>
-        <div>
-          <p> &gt;</p>
-        </div>
-        <div className="ml-2">
-          <p>
-            <span>Snack</span>
-          </p>
-        </div>
+        <p className="ordergrid__text font-bold text-blue font-sans text-xl mx-8 mt-10 ">
+          <a href="#">Snack</a>
+        </p>{" "}
       </div>
-      <p className="productgrid__text font-bold text-blue font-sans text-xl mx-8 mt-10 ">
-        <a href="#">Snack</a>
-      </p>
-      <section className="product__section col-span-4 grid grid-cols-3 gap-4 mx-8 my-6">
-        <FoodItems src={ImageSampleLogoOne} alt="Image sample logo One" className="img__item" />
-        <FoodItems src={ImageSampleLogoTwo} alt="Image sample logo two" className="img__item" />
-        <FoodItems src={ImageSampleLogoOne} alt="Image sample logo One" className="img__item" />
-        <FoodItems src={ImageSampleLogoTwo} alt="Image sample logo two" className="img__item" />
-        <FoodItems src={ImageSampleLogoOne} alt="Image sample logo One" className="img__item" />
-        <FoodItems src={ImageSampleLogoTwo} alt="Image sample logo two" className="img__item" />
-      </section>
+      <div className=" pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 mx-8 my-6">
+        {orders.map(order => {
+          const { title, price, image } = order
+          return (
+            // eslint-disable-next-line react/jsx-key
+            <div className="product__section ">
+              <FoodItems src={image} alt="Image one" title={title} price={price} className="img__item" />
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
 
-function FoodItems({ src, altText }) {
+// eslint-disable-next-line react/prop-types
+function FoodItems({ src, altText, title, price }) {
   return (
-    <div>
+    <div className=" ">
       <img src={src} alt={altText} className="" />
+      <p>{title}</p> <p>#{price}</p>
     </div>
   )
 }

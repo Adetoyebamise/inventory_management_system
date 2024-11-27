@@ -34,3 +34,6 @@ Finally, start server:
 npm run dev
 ```
 
+#### Pages
+  Order Page https://inventorytul.netlify.app/
+  Product Page https://inventorytul.netlify.app/products

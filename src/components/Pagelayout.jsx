@@ -1,6 +1,4 @@
-import React from "react"
-import ImageSampleLogoOne from "/src/assets/mealone.png"
-import ImageSampleLogoTwo from "/src/assets/mealthree.png"
+import { useLoaderData } from "react-router-dom"
 
 function PageLayout() {
   return (
@@ -11,31 +9,39 @@ function PageLayout() {
   )
 }
 
+
 function ProductGrid() {
+  const { orders } = useLoaderData()
   return (
     <div className="product__container">
       <p className="productgrid__text font-bold text-blue font-sans text-xl mx-8 mt-10 ">
         <a href="#">Order Again</a>
       </p>
-      <section className="product__section col-span-4 grid grid-cols-2 gap-4 mx-8 my-6">
-        <FoodItems src={ImageSampleLogoOne} alt="Image sample logo One" className="img__item" />
-        <FoodItems src={ImageSampleLogoTwo} alt="Image sample logo two" className="img__item" />
-        <FoodItems src={ImageSampleLogoOne} alt="Image sample logo One" className="img__item" />
-        <FoodItems src={ImageSampleLogoTwo} alt="Image sample logo two" className="img__item" />
-        <FoodItems src={ImageSampleLogoOne} alt="Image sample logo One" className="img__item" />
-        <FoodItems src={ImageSampleLogoTwo} alt="Image sample logo two" className="img__item" />
-      </section>
+      <div className=" col-span-4 grid grid-cols-2 gap-4 mx-8 my-6">
+       {orders.map(order => {
+        const { title, price, image } = order
+        return (
+       // eslint-disable-next-line react/jsx-key
+       <div className="product__section">
+        <FoodItems src={image} alt="Image sample logo One" title={title} price={price} className="img__item" />
+       </div>
+       )
+       })};
+     </div>
+    </div>
+  )
+};
+
+// eslint-disable-next-line react/prop-types
+function FoodItems({ src, altText, title, price }) {
+  return (
+    <div>
+      <img src={src} alt={altText} className="" />
+      <p>{title}</p> <p>#{price}</p>
     </div>
   )
 }
 
-function FoodItems({ src, altText }) {
-  return (
-    <div>
-      <img src={src} alt={altText} className="" />
-    </div>
-  )
-}
 function Widget() {
   return (
     <div className="widget__container bg-slate-300 p-6 rounded-lg shadow-md mt-24 mb-24">
@@ -45,7 +51,7 @@ function Widget() {
         <WidgetDetails classNmae="widget__item" />
         <WidgetDetails classNmae="widget__item" />
         <WidgetDetails classNmae="widget__item" />
-        <button type="submit" class="widget__button w-full bg-blue text-white py-2 px-4 rounded-3xl">
+        <button type="submit" className="widget__button w-full bg-blue text-white py-2 px-4 rounded-3xl">
           Add 4 for #8,400.00
         </button>
       </aside>

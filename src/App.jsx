@@ -5,6 +5,7 @@ import HomeLayout from "./components/Homelayout"
 import ProductsContainer from "./pages/Products"
 import "./index.css"
 import OrdersContainer from "./pages/Orders"
+import { loader as orderLoader } from './pages/Orders';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,15 +23,17 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <ProductsContainer />,
-        
+        loader: orderLoader(queryClient),
       },
       {
         path: "products",
         element: <OrdersContainer />,
+        loader: orderLoader(queryClient),
       },
     ],
   },
 ])
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
